@@ -2,6 +2,18 @@ import type { Product } from './types/product'
 
 export const sampleProducts: Product[] = [
   {
+    name: 'Nice Slim Pant',
+    slug: 'nice-slim-pant',
+    category: 'Pants',
+    image: '/images/nice-pant.jpg',
+    price: 200,
+    countInStock: 14,
+    brand: 'Nike',
+    rating: 4.2,
+    numReviews: 10,
+    description: 'High Quality product',
+  },
+  {
     name: 'Nice Shirt',
     slug: 'nice-shirt',
     category: 'Shirts',
@@ -25,18 +37,7 @@ export const sampleProducts: Product[] = [
     numReviews: 10,
     description: 'High Quality product',
   },
-  {
-    name: 'Nice Slim Pant',
-    slug: 'nice-slim-pant',
-    category: 'Pants',
-    image: '/images/nice-pant.jpg',
-    price: 200,
-    countInStock: 14,
-    brand: 'Nike',
-    rating: 4.2,
-    numReviews: 10,
-    description: 'High Quality product',
-  },
+
   {
     name: 'LG Watch',
     slug: 'lg-watch',
