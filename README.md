@@ -68,11 +68,11 @@ module.exports = {
 
 ```
 
-4. Create express server
+8. Create express server
    npm install express
    npm install --save-sev @types/express
 
-5. create src/index.ts
+   create src/index.ts
    copy data.ts and Product.ts from frontend to backend
 
 ```js
@@ -92,3 +92,32 @@ app.listen(PORT, () => {
    command: node build/index.js
 
 ```
+
+9. Fetch Products
+   Open by cd in terminal "cd frontend"
+
+   1. install axios
+
+      npm install axios
+      in main.tsx
+
+      ```js
+      axios.defaults.baseURL =
+        process.env.NODE_ENV === 'development' ? 'https://localhost:4000' : '/'
+      ```
+
+   2. define types in HomePage
+      frontend/pages/HomePage
+
+   3. define initial state and reducer in HomePage.tsx
+      frontend/pages/HomePage
+
+   4. define get error functon
+      create types/AiError.ts
+
+      frontend/pages/HomePage
+
+   5. create utils.ts
+   6. fetch products
+   7. refine return statement
+      replace sampleProducts with products
