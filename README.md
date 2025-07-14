@@ -121,3 +121,6 @@ app.listen(PORT, () => {
    6. fetch products
    7. refine return statement
       replace sampleProducts with products
+
+10. create Rating product component
+    1. Rating.js
