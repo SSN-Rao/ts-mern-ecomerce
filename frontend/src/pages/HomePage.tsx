@@ -1,11 +1,11 @@
 import { useEffect, useReducer } from 'react'
 import axios from 'axios'
 import { Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import type { Product } from '../types/product'
 import ProductItem from '../components/ProductItem'
+// import { Helmet } from 'react-helmet-async'
 
 type State = {
   products: Product[]
@@ -68,6 +68,9 @@ export default function HomePage() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <Row>
+          {/* <Helmet>
+            <title>TS eCommerce</title>
+          </Helmet> */}
           {products.map((product) => (
             <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
               <ProductItem product={product} />

@@ -123,4 +123,10 @@ app.listen(PORT, () => {
       replace sampleProducts with products
 
 10. create Rating product component
+
     1. Rating.js
+
+11. create Product page
+    1. npm i react-helmet-async
+    2. main.tsx
+    3. HomePage.tsx
