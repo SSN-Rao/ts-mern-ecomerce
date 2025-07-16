@@ -127,6 +127,13 @@ app.listen(PORT, () => {
     1. Rating.js
 
 11. create Product page
+
     1. npm i react-helmet-async
     2. main.tsx
     3. HomePage.tsx
+
+12. load Products by react Query
+    1. npm install @tanstack/react-query --legacy-peer-deps
+    2. main.tsx
+    3. apiClient.ts
+    4. hooks/ productHooks.ts
