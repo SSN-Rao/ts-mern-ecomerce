@@ -113,7 +113,7 @@ app.listen(PORT, () => {
       frontend/pages/HomePage
 
    4. define get error functon
-      create types/AiError.ts
+      create types/ApiError.ts
 
       frontend/pages/HomePage
 
@@ -133,7 +133,13 @@ app.listen(PORT, () => {
     3. HomePage.tsx
 
 12. load Products by react Query
+
     1. npm install @tanstack/react-query --legacy-peer-deps
     2. main.tsx
     3. apiClient.ts
     4. hooks/ productHooks.ts
+
+13. Create ProductPage
+    1. index.ts (adds code)
+    2. productHooks.ts (adds code)
+    3. ProductPage.tsx (adds code)
