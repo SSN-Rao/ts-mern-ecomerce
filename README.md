@@ -140,6 +140,10 @@ app.listen(PORT, () => {
     4. hooks/ productHooks.ts
 
 13. Create ProductPage
+
     1. index.ts (adds code)
     2. productHooks.ts (adds code)
     3. ProductPage.tsx (adds code)
+
+14. Create React Context
+    1. Store.ts
