@@ -147,4 +147,4 @@ app.listen(PORT, () => {
 
 14. Create React Context
     1. Store.ts
-    2. yo yo
+    2. light and dark mode button in app.tsx in nav bar
