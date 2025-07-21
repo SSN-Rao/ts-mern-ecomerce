@@ -19,7 +19,7 @@ function Rating(props: {
       </span>
       <span>
         <i
-          className={
+          className= {
             rating >= 2
               ? 'fas fa-star'
               : rating >= 1.5

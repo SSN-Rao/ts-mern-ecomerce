@@ -1,7 +1,21 @@
 import cors from 'cors'
-import express, { Request, Response } from 'express'
-import { sampleProducts } from './data'
+import dotenv from 'dotenv'
+import express from 'express'
+import mongoose from 'mongoose'
+import { productRouter } from './routers/productRouter'
 
+dotenv.config()
+
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/ts-ecommerce'
+mongoose.set('strictQuery', true)
+mongoose.connect(MONGODB_URI)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+  })
+  
 const app = express()
 app.use(
   cors({
@@ -9,13 +23,8 @@ app.use(
     origin: ['http://localhost:5173'],
   })
 )
-app.get('/api/product', (req: Request, res: Response) => {
-  res.json(sampleProducts)
-})
 
-app.get('/api/product/:slug', (req: Request, res: Response) => {
-  res.json(sampleProducts.find((x) => x.slug === req.params.slug))
-})
+app.use('/api/product', productRouter)
 
 const PORT = 4000
 app.listen(PORT, () => {

@@ -25,17 +25,20 @@ function reducer(state: AppState, action: Action): AppState {
 
 const defaultDispatch: React.Dispatch<Action> = () => initialState
 
-const Store = React.createContext({
+const Store = React.createContext<{
+  state: AppState;
+  dispatch: React.Dispatch<Action>;
+}>({
   state: initialState,
   dispatch: defaultDispatch,
-})
+});
 
-function StoreProvider(props: React.PropsWithChildren<{}>) {
+function StoreProvider({ children }: React.PropsWithChildren<{}>) {
   const [state, dispatch] = React.useReducer<React.Reducer<AppState, Action>>(
     reducer,
     initialState
-  )
-  return <Store.Provider value={{ state, dispatch }} {...props} />
+  );
+  return <Store.Provider value={{ state, dispatch }}>{children}</Store.Provider>;
 }
 
 export { Store, StoreProvider }

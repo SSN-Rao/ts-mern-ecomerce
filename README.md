@@ -148,3 +148,14 @@ app.listen(PORT, () => {
 14. Create React Context
     1. Store.ts
     2. light and dark mode button in app.tsx in nav bar
+
+15. Connect MongoDB
+      1. create mongodb database
+      2. npm install dotenv mongoose @typegoose/typegoose
+      3. put mongodb uri in .env
+      4. MONGODB_URL=mongodb://localhost/tsmern
+      5. index.js
+
+      6. creating productModel.ts in backend
+      7. npm i express-async-handler
+      8. create productRouter.ts
