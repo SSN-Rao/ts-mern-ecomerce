@@ -25,7 +25,7 @@ const router = createBrowserRouter(
     </Route>
   )
 )
-
+ 
 const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(

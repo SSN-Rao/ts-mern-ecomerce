@@ -1,4 +1,4 @@
-# typescript MERN Amazon
+# typescript MERN eCommerce
 
 ## Lessons
 
