@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
 import { productRouter } from './routers/productRouter'
+import { seedRouter } from './routers/seedRouter'
 
 dotenv.config()
 
@@ -16,15 +17,18 @@ mongoose.connect(MONGODB_URI)
     console.error('MongoDB connection error:', error);
   })
   
+
+
 const app = express()
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
   })
 )
 
 app.use('/api/product', productRouter)
+app.use('/api/seed', seedRouter)
 
 const PORT = 4000
 app.listen(PORT, () => {

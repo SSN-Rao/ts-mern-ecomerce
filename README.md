@@ -159,3 +159,6 @@ app.listen(PORT, () => {
       6. creating productModel.ts in backend
       7. npm i express-async-handler
       8. create productRouter.ts
+      9. in index.ts add app.use ('/api/product', productRouter)
+      10. run <http://localhost4000/api/product>  to check product array
+      11. seedRouter.ts in backend/routers/...
