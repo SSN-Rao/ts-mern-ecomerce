@@ -162,3 +162,11 @@ app.listen(PORT, () => {
       9. in index.ts add app.use ('/api/product', productRouter)
       10. run <http://localhost4000/api/product>  to check product array
       11. seedRouter.ts in backend/routers/...
+
+16. Implement Add to Cart
+      1. Cart.js
+      2. Store.tsx (adding code)
+      3. App.tsx (adding cart)
+      4. utils.ts (export convertProductToCartItem)
+      5. ProductItems.tsx (adding useContext ...  ctxDispatch)
+

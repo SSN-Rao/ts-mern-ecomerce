@@ -16,7 +16,7 @@ export default function ProductPage() {
     isLoading,
     error,
   } = useGetProductDetailsBySlugQuery(slug!)
-
+  
   return isLoading ? (
     <LoadingBox />
   ) : error ? (
