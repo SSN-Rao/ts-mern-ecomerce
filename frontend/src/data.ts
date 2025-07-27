@@ -1,4 +1,4 @@
-import type { Product } from './types/product'
+import type { Product } from './types/product';
 
 export const sampleProducts: Product[] = [
   {
@@ -41,7 +41,7 @@ export const sampleProducts: Product[] = [
   {
     name: 'LG Watch',
     slug: 'lg-watch',
-    category: 'watches',
+    category: 'Watches',
     image: '/images/lg-watch.jpg',
     price: 180,
     countInStock: 25,

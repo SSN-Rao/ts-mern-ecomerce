@@ -2,6 +2,8 @@ import { useContext, useEffect } from 'react'
 import './index.css'
 import { Navbar, Container, Nav, Button, Badge } from 'react-bootstrap'
 import { Link, Outlet } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Store } from './Store'
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
 
   return (
     <div className="d-flex flex-column vh-100">
+      <ToastContainer position="bottom-center" limit={1} />
       <header>
         <Navbar expand="lg">
           <Container>

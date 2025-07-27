@@ -1,12 +1,15 @@
 import { Helmet } from 'react-helmet-async'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useGetProductDetailsBySlugQuery } from '../productHooks'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import type { ApiError } from '../types/ApiError'
-import { getError } from '../utils'
-import { Badge, Card, Col, ListGroup, Row } from 'react-bootstrap'
+import { convertProductToCartItem, getError } from '../utils'
+import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
 import Rating from '../components/Rating'
+import { Store } from '../Store'
+import { useContext } from 'react'
+import { toast } from 'react-toastify'
 
 export default function ProductPage() {
   const params = useParams()
@@ -16,6 +19,28 @@ export default function ProductPage() {
     isLoading,
     error,
   } = useGetProductDetailsBySlugQuery(slug!)
+
+  const {state, dispatch} = useContext(Store)
+  const { cart } = state
+
+  const navigate = useNavigate()
+
+  const addToCartHandler = () => {
+    const existItem = cart.cartItems.find((x) => x._id === product!._id)
+    const quantity = existItem ? existItem.quantity + 1 : 1
+    if (product!.countInStock < quantity) {
+      toast.warn('Sorry. Product is out of stock')
+      return
+    }
+    dispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...convertProductToCartItem(product!), quantity },
+    })
+    toast.success('Product added to cart')
+    // Redirect to cart page after adding item
+    navigate('/cart')
+  }
+
   
   return isLoading ? (
     <LoadingBox />
@@ -77,9 +102,13 @@ export default function ProductPage() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
+                {product.countInStock > 0 && (  
                 <ListGroup.Item>
-                  <button className="w-100 btn btn-primary">Add to Cart</button>
+                  <div className='d-grid'>
+                    <Button onClick={addToCartHandler} variant="primary"> Add to Cart</Button>
+                  </div>
                 </ListGroup.Item>
+                )}
               </ListGroup>
             </Card.Body>
           </Card>
@@ -88,3 +117,4 @@ export default function ProductPage() {
     </div>
   )
 }
+

@@ -170,3 +170,7 @@ app.listen(PORT, () => {
       4. utils.ts (export convertProductToCartItem)
       5. ProductItems.tsx (adding useContext ...  ctxDispatch)
 
+17.  Add to Cart In productPage
+      1. ProductPage.ts
+      2. npm i react-toastify
+
