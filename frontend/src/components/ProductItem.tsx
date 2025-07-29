@@ -25,7 +25,7 @@ function ProductItem({ product }: { product: Product }) {
 
     dispatch({
       type: 'CART_ADD_ITEM',
-      payload: { ...product, quantity },
+      payload: { ...item, quantity },
     })
     toast.success('Product added to cart')
   }

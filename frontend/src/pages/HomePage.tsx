@@ -20,8 +20,8 @@ export default function HomePage() {
       <Helmet>
         <title>TS eCommerce</title>
       </Helmet>
-      {(products ?? []).map((product) => (
-        <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+      {products!.map((product) => (
+        <Col key={product.slug} sm={6} md={4} lg={3} >
           <ProductItem product={product} />
         </Col>
       ))}

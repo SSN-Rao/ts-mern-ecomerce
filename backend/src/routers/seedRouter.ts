@@ -10,6 +10,7 @@ seedRouter.get(
     asyncHandler(async (req: Request, res: Response) => {
         await ProductModel.deleteMany({})
         const createdProducts = await ProductModel.insertMany(sampleProducts)
+        
         res.json({ createdProducts })
     })
 )
