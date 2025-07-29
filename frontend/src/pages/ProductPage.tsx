@@ -11,6 +11,8 @@ import { Store } from '../Store'
 import { useContext } from 'react'
 import { toast } from 'react-toastify'
 
+
+
 export default function ProductPage() {
   const params = useParams()
   const { slug } = params
