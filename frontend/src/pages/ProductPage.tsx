@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useGetProductDetailsBySlugQuery } from '../productHooks'
+import { useGetProductDetailsBySlugQuery } from '../Hooks/productHooks'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import type { ApiError } from '../types/ApiError'

@@ -173,4 +173,11 @@ app.listen(PORT, () => {
 17.  Add to Cart In productPage
       1. ProductPage.ts
       2. npm i react-toastify
+      3. npm i react-router-bootstrap
+      4. App.tsx
+
+18.   Create Cart Page
+      1. CartPage.tsx
+
+
 

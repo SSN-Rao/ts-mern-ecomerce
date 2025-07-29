@@ -3,7 +3,7 @@ import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import ProductItem from '../components/ProductItem'
 import { Helmet } from 'react-helmet-async'
-import { useGetProductsQuery } from '../productHooks'
+import { useGetProductsQuery } from '../Hooks/productHooks'
 import type { ApiError } from '../types/ApiError'
 import { getError } from '../utils'
 
