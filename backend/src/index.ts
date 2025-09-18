@@ -1,3 +1,5 @@
+
+import { ProductModel } from './models/productModel'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
@@ -23,12 +25,23 @@ const app = express()
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:5173'],
+    origin: true, // Allow all origins for development (Codespaces compatibility)
   })
 )
 
+
 app.use('/api/product', productRouter)
 app.use('/api/seed', seedRouter)
+
+// Root route to return all products
+app.get('/', async (req, res) => {
+  try {
+    const products = await ProductModel.find({})
+    res.json(products)
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching products' })
+  }
+})
 
 const PORT = 4000
 app.listen(PORT, () => {
