@@ -185,4 +185,8 @@ app.listen(PORT, () => {
       1. userModel.ts
       2. npm i bcryptjs
       3. data.ts
-
+      4. seed users in seedRouter.ts
+      5. open http://localhost:4000/api/seed
+      6. npm i jsonwebtoken
+      7. add JWT_SECRET to .env file
+      8. utils.ts

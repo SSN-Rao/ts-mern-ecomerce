@@ -40,18 +40,23 @@ function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'SWITCH_MODE':
       return {...state, mode: state.mode === 'dark' ? 'light' : 'dark' }
-    case 'CART_ADD_ITEM': 
+    case 'CART_ADD_ITEM': {
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
-        (item: CartItem) => item.slug === newItem._id
-      )
-      const cartItems = existItem
-      ? state.cart.cartItems.map((item: CartItem) => 
-        item._id === existItem._id ? newItem : item
-      )
-      : [...state.cart.cartItems, newItem]
+        (item: CartItem) => item._id === newItem._id
+      );
+      let cartItems;
+      if (existItem) {
+        cartItems = state.cart.cartItems.map((item: CartItem) =>
+          item._id === existItem._id
+            ? { ...item, quantity: newItem.quantity } // update quantity only
+            : item
+        );
+      } else {
+        cartItems = [...state.cart.cartItems, newItem];
+      }
 
-      localStorage.setItem('cartItems', JSON.stringify(cartItems))
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
       return {
         ...state,
         cart: {
@@ -66,15 +71,19 @@ function reducer(state: AppState, action: Action): AppState {
             (a: number, c: CartItem) => a + c.price * c.quantity,
             0
           ),
-          totalPrice: cartItems.reduce(
-            (a: number, c: CartItem) => a + c.price * c.quantity,
-            0
-          ) + (cartItems.length > 0 ? 0 : 15) + 0.15 * cartItems.reduce(
-            (a: number, c: CartItem) => a + c.price * c.quantity,
-            0
-          ),
+          totalPrice:
+            cartItems.reduce(
+              (a: number, c: CartItem) => a + c.price * c.quantity,
+              0
+            ) +
+            (cartItems.length > 0 ? 0 : 15) +
+            0.15 * cartItems.reduce(
+              (a: number, c: CartItem) => a + c.price * c.quantity,
+              0
+            ),
         },
-      }
+      };
+    }
       case 'CART_REMOVE_ITEM': {
         const cartItems = state.cart.cartItems.filter(
           (item: CartItem) => item._id !== action.payload._id

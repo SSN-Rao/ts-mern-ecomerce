@@ -9,10 +9,10 @@ export const sampleProducts: Product[] = [
     category: 'Pants',
     image: '/images/nice-pant.jpg',
     price: 200,
-    countInStock: 0,
+    countInStock: 378,
     brand: 'Nike',
     rating: 4.2,
-    numReviews: 10,
+    numReviews: 200,
     description: 'High Quality product',
   },
   {
@@ -21,7 +21,7 @@ export const sampleProducts: Product[] = [
     category: 'Shirts',
     image: '/images/nice-shirt.jpg',
     price: 120,
-    countInStock: 10,
+    countInStock: 400,
     brand: 'Nike',
     rating: 4.5,
     numReviews: 10,
@@ -33,7 +33,7 @@ export const sampleProducts: Product[] = [
     category: 'Shirts',
     image: '/images/adidas-shirt.jpg',
     price: 100,
-    countInStock: 8,
+    countInStock: 250,
     brand: 'Adidas',
     rating: 4.0,
     numReviews: 10,
@@ -43,17 +43,16 @@ export const sampleProducts: Product[] = [
   {
     name: 'LG Watch',
     slug: 'lg-watch',
-    category: 'watches',
+    category: 'Watches',
     image: '/images/lg-watch.jpg',
     price: 180,
-    countInStock: 25,
+    countInStock: 400,
     brand: 'LG',
     rating: 4.5,
     numReviews: 10,
     description: 'Most Demanded Watch',
   },
 ]
-
 export const sampleUsers: User[] = [
   {
     name: 'Joe',
