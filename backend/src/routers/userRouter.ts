@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import asyncHandler from 'express-async-handler';
 import { UserModel } from '../models/userModel';
 import { generateToken } from '../utils';
-import bcrypt from 'bcryptjs/umd/types';
+import bcrypt from 'bcryptjs';
 
 export const userRouter = express.Router();
 //POST /api/users/signin
