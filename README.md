@@ -192,3 +192,10 @@ app.listen(PORT, () => {
       8. utils.ts
 
 21.  create SigninPage.ts
+22.  Register User
+      1. userRouter.ts
+
+23. Create Shipping Screen
+      1. Cart.js
+      2. Store.tsx
+      

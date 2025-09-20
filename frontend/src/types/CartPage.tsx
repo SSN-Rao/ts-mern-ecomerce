@@ -107,7 +107,13 @@ const CartPage = () => {
                     <Button
                       type="button"
                       className="w-100"
-                      onClick={() => navigate('/signin?redirect=/shipping')}
+                      onClick={() => {
+                        if (localStorage.getItem('userInfo')) {
+                          navigate('/shipping');
+                        } else {
+                          navigate('/signin?redirect=/shipping');
+                        }
+                      }}
                       disabled={cartItems.length === 0}
                     >
                       Proceed to Checkout

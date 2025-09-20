@@ -1,5 +1,5 @@
 import React from 'react'
-import type { Cart, CartItem } from './types/Cart'
+import type { Cart, CartItem, ShippingAddress } from './types/Cart'
 import type { UserInfo } from './types/UserInfo'
 
 type AppState = {
@@ -43,6 +43,7 @@ type Action =
   | { type: 'CART_REMOVE_ITEM'; payload: CartItem}
   | { type: 'USER_SIGNIN'; payload: UserInfo }
   | { type: 'USER_SIGNOUT' }
+  | { type: 'SAVE_SHIPPING_ADDRESS'; payload: ShippingAddress }
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
@@ -105,6 +106,7 @@ function reducer(state: AppState, action: Action): AppState {
     case 'USER_SIGNOUT':
       return {
         ...state,
+        userInfo: undefined,
         cart: {
           cartItems: [],
           paymentMethod: 'SadaPay',
@@ -119,8 +121,17 @@ function reducer(state: AppState, action: Action): AppState {
           shippingPrice: 0,
           taxPrice: 0,
           totalPrice: 0,
+          isPaid: false
         },
-        }
+      }
+    case 'SAVE_SHIPPING_ADDRESS':
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          shippingAddress: action.payload,
+        },
+      }
       
     default:
       return state
@@ -137,8 +148,8 @@ const Store = React.createContext<{
   dispatch: defaultDispatch,
 });
 
-function StoreProvider({ children }: React.PropsWithChildren<{}>) {
-  const [state, dispatch] = React.useReducer<React.Reducer<AppState, Action>>(
+function StoreProvider({ children }: React.PropsWithChildren<object>) {
+  const [state, dispatch] = React.useReducer(
     reducer,
     initialState
   );
