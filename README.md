@@ -202,4 +202,7 @@ app.listen(PORT, () => {
 24. create paymentPage
       1. store.tsx
       2. shippingAddressPage.ts
+
+25. Build-Order-Api
+      1. orderModel.tsx
       
