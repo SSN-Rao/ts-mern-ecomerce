@@ -198,4 +198,8 @@ app.listen(PORT, () => {
 23. Create Shipping Screen
       1. Cart.js
       2. Store.tsx
+
+24. create paymentPage
+      1. store.tsx
+      2. shippingAddressPage.ts
       
