@@ -23,6 +23,7 @@ import ShippingAddressPage from './pages/ShippingAddressPage'
 import PaymentMethodPage from './pages/PaymentMethodPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import PlaceOrderPage from './pages/PlaceOrderPage'
+import OrderPage from './pages/OrderPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +46,11 @@ const router = createBrowserRouter(
       <Route path="placeorder" element={
         <ProtectedRoute>
           <PlaceOrderPage />
+        </ProtectedRoute>
+      } />
+      <Route path="order/:id" element={
+        <ProtectedRoute>
+          <OrderPage />
         </ProtectedRoute>
       } />
     </Route>
