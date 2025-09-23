@@ -37,33 +37,39 @@ function App() {
         <Navbar expand="lg">
           <Container>
             <LinkContainer to="/">
-            <Navbar.Brand>eCommerce</Navbar.Brand>
+              <Navbar.Brand>eCommerce</Navbar.Brand>
             </LinkContainer>
-          </Container>
-          <Nav>
-            <Button variant={mode} onClick={switchModeHandler}>
-              <i className={mode === 'light' ? 'fa fa-sun' : 'fa fa-moon'}></i>
-            </Button>
-            <Link to="/cart" className="nav-link">
-              Cart
-              {cart.cartItems.length > 0 && (
-                <Badge pill bg="danger">
-                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                </Badge>
-              )}
-            </Link>
-              {userInfo ? (
-                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                  <Link className='dropdown-item' to="/signout" onClick={signoutHandler}>
-                  Sign Out
-                  </Link>
-                </NavDropdown>
-              ) : (
-                <Link className='nav-link' to="/signin">
-                  Sign In
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ms-auto">
+                <Button variant={mode} onClick={switchModeHandler}>
+                  <i className={mode === 'light' ? 'fa fa-sun' : 'fa fa-moon'}></i>
+                </Button>
+                <Link to="/cart" className="nav-link">
+                  Cart
+                  {cart.cartItems.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
+                  )}
                 </Link>
-              )}
-          </Nav>
+                {userInfo ? (
+                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <LinkContainer to="/orderhistory">
+                      <NavDropdown.Item>Order History</NavDropdown.Item>
+                    </LinkContainer>
+                    <Link className='dropdown-item' to="/signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </NavDropdown>
+                ) : (
+                  <Link className='nav-link' to="/signin">
+                    Sign In
+                  </Link>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
         </Navbar>
       </header>
       <main>

@@ -24,6 +24,7 @@ import PaymentMethodPage from './pages/PaymentMethodPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import PlaceOrderPage from './pages/PlaceOrderPage'
 import OrderPage from './pages/OrderPage'
+import OrderHistoryPage from './pages/OrderHistoryPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,6 +54,11 @@ const router = createBrowserRouter(
           <OrderPage />
         </ProtectedRoute>
       } />
+      {<Route path="orderhistory" element={
+        <ProtectedRoute>
+          <OrderHistoryPage />
+        </ProtectedRoute>
+      } /> }
     </Route>
   )
 )
