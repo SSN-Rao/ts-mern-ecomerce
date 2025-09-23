@@ -8,6 +8,7 @@ import { productRouter } from './routers/productRouter'
 import { seedRouter } from './routers/seedRouter'
 import { userRouter } from './routers/userRouter'
 import { orderRouter } from './routers/orderRouter'
+import { keyRouter } from './routers/keyRouter'
 
 dotenv.config()
 
@@ -39,6 +40,7 @@ app.use('/api/product', productRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', orderRouter) 
 app.use('/api/seed', seedRouter)
+app.use('/api/keys', keyRouter)
 
 // Root route to return all products
 app.get('/', async (req, res) => {

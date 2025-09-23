@@ -46,3 +46,53 @@ orderRouter.post(
         }
     })
 );
+
+orderRouter.put(
+    '/:id/pay',
+    isAuth,
+    asyncHandler(async (req: Request, res: Response) => {
+        const order = await OrderModel.findById(req.params.id)
+
+        if(order) {
+            order.isPaid = true
+            order.paidAt = new Date(Date.now())
+            order.paymentResult = {
+                paymentId: req.body.id,
+                status: req.body.status,
+                update_time: req.body.update_time,
+                email_address: req.body.email_address,
+            }
+            const updateOrder = await order.save()
+
+            res.send({ order: updateOrder, message: "order Paid Successfully" })
+        } else {
+            res.status(404).json({message: 'Order Not Found'})
+        }
+    })
+)
+
+
+
+function asyncHandler(fn: any) {
+    return function (req: Request, res: Response, next: any) {
+        Promise.resolve(fn(req, res, next)).catch(next);
+    };
+}
+
+orderRouter.put(
+    '/:id/deliver',
+    isAuth,
+    asyncHandler(async (req: Request, res: Response) => {
+        const order = await OrderModel.findById(req.params.id)
+
+        if(order) {
+            order.isDelivered = true
+            order.deliveredAt = new Date(Date.now())
+            const updateOrder = await order.save()
+
+            res.send({ order: updateOrder, message: "order Delivered Successfully" })
+        } else {
+            res.status(404).json({message: 'Order Not Found'})
+        }
+    })
+)

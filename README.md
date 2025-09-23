@@ -214,4 +214,11 @@ app.listen(PORT, () => {
       1. orderRouter.ts
       2. orderHooks.tsx
       3. OrderPage.tsx
-      
+
+28. Pay-order-by-SadaPay
+      1. create SadaPay developer Account 
+      2. get SadaPay Client id
+      3. save in .env as SADAPAY_CLIENT_ID
+      4. keyRouter.ts
+      5. index.ts
+      6. orderRouter.ts
