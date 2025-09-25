@@ -1,7 +1,5 @@
 import { Link, useParams } from "react-router-dom"
 import { useGetOrderDetailsQuery, usePayOrderMutation } from "../Hooks/orderHooks"
-import { useContext } from "react"
-import { Store } from "../Store"
 import LoadingBox from "../components/LoadingBox"
 import MessageBox from "../components/MessageBox"
 import { getError } from "../utils"
@@ -12,16 +10,16 @@ import { Card, ListGroup, Row } from "react-bootstrap"
 import { toast } from "react-toastify"
 
 export default function OrderPage () {
-    const { state } = useContext (Store)
-    const { userInfo } = state
     
     const params = useParams()
     const { id: orderId } = params
 
     const { data: order, error, isLoading, refetch } = useGetOrderDetailsQuery(orderId!)
-    const { mutateAsync: payOrder, isLoading: loadingPay } = usePayOrderMutation();
+    const { mutateAsync: payOrder, status: payStatus } = usePayOrderMutation();
+    const loadingPay = payStatus === 'pending';
 
     const handleConfirmPayment = async () => {
+        if (!orderId) return;
         try {
             await payOrder({ orderId });
             toast.success('Payment confirmed!');

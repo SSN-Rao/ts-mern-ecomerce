@@ -21,7 +21,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@typegoose/typegoose": "^12.17.0",
+    "@typegoose/typegoose": "^12.19.0",
     "@types/express": "^5.0.3",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",

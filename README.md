@@ -30,18 +30,6 @@
       npm install --save-dev typescript ts-node-dev
       create tsconfig.json
 
-   ```json
-   {
-      "compilerOptions":
-      {
-         "target" : "es2015",
-         "outDir" : "/.build",
-         "strict" : true,
-         "module" : "commonjs",
-         "esModuleInterop : true
-      }
-   }
-   ```
 
    add dev and build command to package.json
    `"dev": "ts-node-dev --respawn --transpile-only --fles src/index.ts",`
@@ -53,21 +41,8 @@
 ```json
 
 module.exports = {
-   env: {
-      es2016: true,
-      node: true,
-   },
-   extends: ['eslint:recommended', 'pulgin:@typescript-eslint/recommended'],
-   parser: '@typescript-eslint/parser',
-   parserOptions: {
-      ecmaVersion: es2016',
-      sourceType: 'module',
-   },
-   plugins: ['@typescript-eslint'],
-}
 
 ```
-
 8. Create express server
    npm install express
    npm install --save-sev @types/express
@@ -75,22 +50,8 @@ module.exports = {
    create src/index.ts
    copy data.ts and Product.ts from frontend to backend
 
-```js
-import express, { request, Response } from 'express'
-import { sampleProduct } from './data'
-const app = express()
-app.get('/api/product', (req: Request, rest: Response) => {
-  res.json(sampleProducts)
-})
-
-const PORT = 4000
-app.listen(PORT, () => {
-  console.log(`server started at http://localhost:${PORT}`)
-})
-
    command: npx tsc
    command: node build/index.js
-
 ```
 
 9. Fetch Products
@@ -100,10 +61,6 @@ app.listen(PORT, () => {
 
       npm install axios
       in main.tsx
-
-      ```js
-      axios.defaults.baseURL =
-        process.env.NODE_ENV === 'development' ? 'https://localhost:4000' : '/'
       ```
 
    2. define types in HomePage
@@ -222,3 +179,8 @@ app.listen(PORT, () => {
       4. keyRouter.ts
       5. index.ts
       6. orderRouter.ts
+
+29. Publish Website On 
+      1. index.ts
+      2. npm init
+      3. package.json

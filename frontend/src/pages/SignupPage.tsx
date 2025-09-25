@@ -1,4 +1,4 @@
-import { use, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import { useSignupMutation } from "../Hooks/userHooks";
@@ -31,7 +31,8 @@ export default function SignupPage() {
     }, [navigate, redirect, userInfo]);
 
 
-    const { mutateAsync: signup, isLoading } = useSignupMutation();
+    const { mutateAsync: signup, status: signupStatus } = useSignupMutation();
+    const isLoading = signupStatus === 'pending';
     const submitHandler = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         if (password !== confirmPassword) {

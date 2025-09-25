@@ -21,7 +21,8 @@ export default function SigninPage () {
     const {state, dispatch} = useContext(Store)
     const {userInfo} = state
 
-    const { mutateAsync: signin, isLoading } = useSigninMutation()
+    const { mutateAsync: signin, status: signinStatus } = useSigninMutation()
+    const isLoading = signinStatus === 'pending';
 
     const submitHandler = async (e: React.SyntheticEvent) => {
         e.preventDefault()

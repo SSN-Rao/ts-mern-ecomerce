@@ -1,5 +1,5 @@
-import { CartItem, ShippingAddress} from "./Cart"
-import { User } from "./User"
+import type { CartItem, ShippingAddress } from "./Cart"
+import type { User } from "./User"
 
 export type Order = {
     _id: string
