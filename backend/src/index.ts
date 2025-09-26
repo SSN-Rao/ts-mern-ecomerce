@@ -55,7 +55,9 @@ app.use('/api/keys', keyRouter)
 // })
 
 app.use(express.static(path.join(__dirname, '../../frontend/dist')))
-app.get('*', (req: Request, res: Response) => {
+
+// Catch-all route for React SPA (must be last)
+app.use((req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'))
 })
 
