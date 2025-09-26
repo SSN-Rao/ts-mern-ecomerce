@@ -13,7 +13,6 @@ import { keyRouter } from './routers/keyRouter'
 import { Request, Response } from 'express'
 
 dotenv.config()
-
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/ts-ecommerce'
 mongoose.set('strictQuery', true)
 mongoose.connect(MONGODB_URI)
